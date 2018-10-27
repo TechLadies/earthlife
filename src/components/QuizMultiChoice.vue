@@ -27,8 +27,28 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
 input[type="checkbox"]{
 	display:none;
+}
+
+.question-answer {
+  margin-top: 20px;
+  padding: 24px;
+  max-width: 560px;
+  color: #212B36;
+  font-size: 16px;
+  line-height: 22px;
+  background-color: white;
+  display: block;
+}
+
+.question-answer:hover{
+  cursor: pointer;
+}
+
+.answer-selected{
+  background-color: #4E4D86;
+  color: white;
 }
 </style>

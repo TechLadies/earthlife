@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .top-banner {
     background-image: url(../assets/header_strip.jpg);
     padding-top: 10px;

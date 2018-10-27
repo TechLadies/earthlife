@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <Navigation />
-    <router-view/>
+    <div v-if="isLoading">
+      Loading...
+    </div>
+    <div v-if="!isLoading">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -14,6 +19,13 @@ export default{
   },
   components: {
     'Navigation': Navigation
+  },
+  computed: {
+    isLoading() {
+      const { categories, questions, actionList } = this.$store.state;
+      const loaded = categories.length && Object.keys(questions).length && actionList.length;
+      return !loaded;
+    }
   },
   created: function(){
     this.$store.dispatch('getData');
@@ -37,8 +49,8 @@ export default{
 .global-earthlife-nav {
   padding: 25px 15%;
   color: #212B36;
-  font-size: 16px;  
-  letter-spacing: 3px;  
+  font-size: 16px;
+  letter-spacing: 3px;
   line-height: 25px;
   -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
 }
