@@ -6,12 +6,12 @@
       <a href="#/results">Results</a>
     </div>
   </div>
-    <div class="first-page-content" v-if="firstPage">
+    <div class="actions-intro-message" v-if="showIntroMessage">
       <p>Earth is about the daily actions that enables responsible living.</p>        
       <p>Based on your responses, we've complied a list of actions you can do in Singapore...</p>
-      <div class="next" @click="changePage"><v-icon class="next-content" name="arrow-right"/></div>
+      <button class="next" @click="changePage"><v-icon class="next-content" name="arrow-right"/></button>
     </div>
-    <div class="second-page-content" v-else>
+    <div class="actions-pledge" v-else>
       <div class="no">
         <input type="radio" id="no" name="action" value="no" />
         <p class="label" for="no">Not Now 
@@ -49,12 +49,12 @@ export default {
    },
     data: function() {
     return {
-      firstPage: true,
+      showIntroMessage: true,
     }
   },
   methods: {
     changePage: function() {
-      this.firstPage = !this.firstPage
+      this.showIntroMessage = !this.showIntroMessage
     }
   }
 }
@@ -64,6 +64,10 @@ export default {
 .wrapper {
   padding-top: 100px;
   margin: 0 auto;
+}
+
+input[type="radio"]{
+	display:none;
 }
 
 .back-button{
@@ -89,11 +93,11 @@ export default {
 }
 
 .next-content {
-  padding-top: 18px;
+  padding-top: 3px;
   
 }
 
-.first-page-content { /* thing to center */
+.actions-intro-message { /* thing to center */
   font-size: 1.5em;
   margin: auto;
   width: 50%;
@@ -103,7 +107,7 @@ export default {
   padding-top: 100px;
 }
 
-.second-page-content {;
+.actions-pledge {;
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -192,7 +196,7 @@ hr {
 
 
 @media only screen and (max-width: 800px) {
-  .first-page-content {
+  .actions-intro-message {
     width: 90%;
     padding-top: 80px;
   }
