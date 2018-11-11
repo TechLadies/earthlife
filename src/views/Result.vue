@@ -52,13 +52,16 @@
           </div>
           <p class="incomplete-box-desc">Finish completing the remaining parts below:</p>
           <div class="button-wrapper">
-            <router-link to="/habits/plant-based-diet/" class="incomplete-buttons">Plant Based</router-link>
-            <router-link to="habits/zero-waste/" class="incomplete-buttons">Zero Waste
+            <div class="habit-wrapper" v-for="category in uncompletedCategories">
+              <router-link :to="{ path: `/habits/${category.slug}` }" class="incomplete-buttons">{{category.title}}</router-link>
+            </div> 
+            
+            <!-- <router-link to="habits/zero-waste/" class="incomplete-buttons">Zero Waste
             </router-link>
             <router-link to="habits/biophilia/" class="incomplete-buttons">Biophilia</router-link>
             <router-link to="habits/advocacy/" class="incomplete-buttons">Advocacy</router-link>
             <router-link to="habits/minimalism/" class="incomplete-buttons">Minimalism</router-link>
-            <router-link to="habits/co2-positive/" class="incomplete-buttons">CO2 Positive</router-link>
+            <router-link to="habits/co2-positive/" class="incomplete-buttons">CO2 Positive</router-link> -->
           </div>
         </div>
       </div>
@@ -83,6 +86,9 @@
       completedCategories () {
         console.log(this.$store.getters.completedCategories);
         return this.$store.getters.completedCategories
+      },
+      uncompletedCategories () {
+        return this.$store.getters.uncompletedCategories
       }
     }
   }

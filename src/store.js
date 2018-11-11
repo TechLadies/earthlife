@@ -13,6 +13,8 @@ export default new Vuex.Store({
 
   getters: {
     completedCategories: state => {
+      // return state.categories.filter(category => { return category.completed })
+
       let resultIfAnswered = state.categories.filter(function(c){
         let questionObjects = c.questions.map(function(id){
            return state.questions[id];
@@ -34,7 +36,31 @@ export default new Vuex.Store({
         })
         return allAnswered;
       });
-      console.log('monkeys', resultIfAnswered);
+      return resultIfAnswered;
+    },
+    uncompletedCategories: state => {
+      // return state.categories.filter(category => { return !category.completed })
+      let resultIfAnswered = state.categories.filter(function(c){
+        let questionObjects = c.questions.map(function(id){
+           return state.questions[id];
+        });
+        let allAnswered = true;
+        let answerArray = questionObjects.map(function(x){
+          let answered = false;
+          x.options.forEach(function(y){
+            if(y.selected === true){
+              answered = true;
+            }
+          })
+          return answered;
+        })
+        answerArray.forEach(function(e){
+          if (e === false){
+            allAnswered = false;
+          }
+        })
+        return !allAnswered;
+      });
       return resultIfAnswered;
     },
   },
