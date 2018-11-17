@@ -64,22 +64,50 @@ export default new Vuex.Store({
       return resultIfAnswered;
     },
 
-    completedCategoryScore: (state, store) => {
-      const { uncompletedCategories } = store;
-      const questions = uncompletedCategories.filter(function(c){
+    completedCategoryScore: (state, getters) => {
+      let allCompletedCategoryScores = getters.completedCategories.map(function(c){
+        let maximumScore = c.questions.length * 10;
         let questionObjects = c.questions.map(function(id){
            return state.questions[id];
-         });
-        const isSelected = questionObjects.filter(function(q){
-          q.options.filter(function(s){
-            if (s.selected) {
-              return s;  
-            }
-          });
+        });
+        console.log("questionObjects", questionObjects);
+        let answerArray = questionObjects.map(function(x){
+          let trueOption = x.options.find(function(y){
+            return y.selected === true;
+          })
+          console.log("trueOption", trueOption);
+          return parseInt(trueOption.score);
         })
-        return isSelected;
-      });
-      debugger
+        let sum = 0;
+        answerArray.forEach(function(e){
+          sum = sum + e;
+        })
+        console.log("sum", sum);
+        return sum/maximumScore * 100;
+       })
+      console.log("allCompletedCategoryScores", allCompletedCategoryScores);
+      return allCompletedCategoryScores;
+
+
+
+
+
+      // const { uncompletedCategories } = store;
+      // const questions = uncompletedCategories.filter(function(c){
+      //   let questionObjects = c.questions.map(function(id){
+      //      return state.questions[id];
+      //    });
+      //   const isSelected = questionObjects.filter(function(q){
+      //     q.options.filter(function(s){
+      //       if (s.selected) {
+      //         return s;  
+      //       }
+      //     });
+      //   })
+      //   return isSelected;
+      //   debugger
+      // });
+      
     },
 
   },

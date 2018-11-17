@@ -19,17 +19,14 @@
         </div> 
       </div>
       <div class="graph">
-        <div class="habit-wrapper" v-for="category in completedCategoryScore">
-              <img class="habit-img" />
-              <div class="habit-name"></div>
-        </div> 
         <div class="graph-inner">
           <div class="habits-columns baseline">
-            <div class="habit-wrapper">
-              <div style="height: 100px;" class="bar positive"></div>
+            <div class="habit-wrapper" v-for="score in completedCategoryScore">
+                <div v-bind:style="{ height: Math.abs(score) + '%'}" :class="{bar: true, positive: score > 0}"></div>
             </div>
-            <div class="habit-wrapper">
-              <div style="height: 150px;" class="bar"></div>
+            
+            <!-- <div class="habit-wrapper">
+              <div style="height: 150px;" :class="{bar}"></div>
             </div>
             <div class="habit-wrapper">
               <div style="height: 60px;" class="bar positive"></div>
@@ -42,7 +39,7 @@
             </div>
             <div class="habit-wrapper">
               <div style="height: 30px;" class="bar"></div>
-            </div>
+            </div> -->
           </div>
         </div> <!-- graph inner -->
       </div> <!--graph -->
@@ -193,10 +190,12 @@ position: relative;
 .baseline {
   padding: 0;
   border: 0.5px solid #C4CDD5;
+  height: 1px;
 }
 
 .baseline .habit-wrapper {
   position: relative;
+  height: 200px;
 }
 
 .bar {
@@ -212,6 +211,7 @@ position: relative;
   bottom: 0;
   background-color: #70C48B;
   border-radius: 4px 4px 0 0;
+  bottom: 100%;
 }
 
 .step2-rectangle {
