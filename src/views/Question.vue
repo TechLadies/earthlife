@@ -22,10 +22,10 @@
 
     </div>
     <div class="habit-tracker">
-      <img class="habit-category" src="../assets/images/buttons/plant-based.png">
+      <img class="habit-category" src="../assets/images/buttons/plant-based-diet.png">
       <img class="habit-category" src="../assets/images/buttons/zero-waste.png">
       <img class="habit-category" src="../assets/images/buttons/advocacy.png">
-      <img class="habit-category" src="../assets/images/buttons/co2.png">
+      <img class="habit-category" src="../assets/images/buttons/co2-positive.png">
       <img class="habit-category" src="../assets/images/buttons/minimalism.png">
       <img class="habit-category" src="../assets/images/buttons/biophilia.png">
     </div>

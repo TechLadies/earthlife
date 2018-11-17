@@ -14,7 +14,7 @@
       <div class="result-text">Here's how you did</div>
       <div class="habits-columns">
         <div class="habit-wrapper" v-for="category in completedCategories">
-              <img class="habit-img" :src="category.buttonUrl"/>
+              <img class="habit-img" :src="require('../assets/images/buttons/' + category.slug + '.png')"/>
               <div class="habit-name">{{category.title}}</div>
         </div> 
       </div>
