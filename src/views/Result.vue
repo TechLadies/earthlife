@@ -37,7 +37,7 @@
           </div>
           <p class="incomplete-box-desc">Finish completing the remaining parts below:</p>
           <div class="button-wrapper">
-            <div class="habit-wrapper" v-for="category in uncompletedCategories">
+            <div class="incomplete-habit-wrapper" v-for="category in uncompletedCategories">
               <router-link :to="{ path: `/habits/${category.slug}` }" class="incomplete-buttons">{{category.title}}</router-link>
             </div> 
           </div>
@@ -126,7 +126,7 @@
 .habits-columns {
   display: flex;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 71.5px;
   max-width: 800px;
   margin: 0 auto;
@@ -134,8 +134,11 @@
 }
 
 .habit-wrapper {
+  width: 130px;
+}
+
+.incomplete-habit-wrapper {
   display: inline-block;
-  /*padding: 0 2%;*/
   flex: 1;
 }
 
@@ -153,7 +156,7 @@
 }
 
 .graph { 
-margin-top: 100px;
+margin-top: 50px;
 height: 400px;
 position: relative;
 }
