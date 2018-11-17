@@ -24,26 +24,10 @@
             <div class="habit-wrapper" v-for="score in completedCategoryScore">
                 <div v-bind:style="{ height: Math.abs(score) + '%'}" :class="{bar: true, positive: score > 0}"></div>
             </div>
-            
-            <!-- <div class="habit-wrapper">
-              <div style="height: 150px;" :class="{bar}"></div>
-            </div>
-            <div class="habit-wrapper">
-              <div style="height: 60px;" class="bar positive"></div>
-            </div>
-            <div class="habit-wrapper">
-              <div style="height: 50px;" class="bar"></div>
-            </div>
-            <div class="habit-wrapper">
-              <div style="height: 200px;" class="bar positive"></div>
-            </div>
-            <div class="habit-wrapper">
-              <div style="height: 30px;" class="bar"></div>
-            </div> -->
           </div>
         </div> <!-- graph inner -->
       </div> <!--graph -->
-      <div class="incomplete-box">
+      <div class="incomplete-box" v-if="uncompletedCategories.length > 0">
         <a class="incomplete-icon">
             <v-icon name="exclamation-circle" scale="2"/>
         </a>
@@ -56,13 +40,6 @@
             <div class="habit-wrapper" v-for="category in uncompletedCategories">
               <router-link :to="{ path: `/habits/${category.slug}` }" class="incomplete-buttons">{{category.title}}</router-link>
             </div> 
-            
-            <!-- <router-link to="habits/zero-waste/" class="incomplete-buttons">Zero Waste
-            </router-link>
-            <router-link to="habits/biophilia/" class="incomplete-buttons">Biophilia</router-link>
-            <router-link to="habits/advocacy/" class="incomplete-buttons">Advocacy</router-link>
-            <router-link to="habits/minimalism/" class="incomplete-buttons">Minimalism</router-link>
-            <router-link to="habits/co2-positive/" class="incomplete-buttons">CO2 Positive</router-link> -->
           </div>
         </div>
       </div>
