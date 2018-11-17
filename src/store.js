@@ -63,6 +63,25 @@ export default new Vuex.Store({
       });
       return resultIfAnswered;
     },
+
+    completedCategoryScore: (state, store) => {
+      const { uncompletedCategories } = store;
+      const questions = uncompletedCategories.filter(function(c){
+        let questionObjects = c.questions.map(function(id){
+           return state.questions[id];
+         });
+        const isSelected = questionObjects.filter(function(q){
+          q.options.filter(function(s){
+            if (s.selected) {
+              return s;  
+            }
+          });
+        })
+        return isSelected;
+      });
+      debugger
+    },
+
   },
 
   mutations: {

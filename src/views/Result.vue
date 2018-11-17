@@ -19,6 +19,10 @@
         </div> 
       </div>
       <div class="graph">
+        <div class="habit-wrapper" v-for="category in completedCategoryScore">
+              <img class="habit-img" />
+              <div class="habit-name"></div>
+        </div> 
         <div class="graph-inner">
           <div class="habits-columns baseline">
             <div class="habit-wrapper">
@@ -89,6 +93,9 @@
       },
       uncompletedCategories () {
         return this.$store.getters.uncompletedCategories
+      },
+      completedCategoryScore () {
+        return this.$store.getters.completedCategoryScore
       }
     }
   }
