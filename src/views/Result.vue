@@ -45,8 +45,10 @@
       </div>
     </div>
     <div class="step2-rectangle">
-      <span class="step2-text">STEP 2</span>
-      <span class="step2-text-body">Get some actions on how to level up your sustainable living!</span>
+      <div class="step2-inner">
+        <span class="step2-text">STEP 2</span>
+        <span class="step2-text-body">Get some actions on how to level up your sustainable living!</span>
+      </div>
       <div class="get-actions-bttn">
         <button class="get-actions" @click="goToAction">Get actions<v-icon name="arrow-right" class="arrow-icon"/></button>
       </div>
@@ -189,7 +191,7 @@
   padding-right: 16px;
   padding-left: 16px;
   margin-top: 30px;
-  height: 350px;
+  height: 315px;
   position: relative;
 }
 
@@ -331,7 +333,7 @@ button:focus {
   outline: 0;
 }
 
-/* desktop and tablet */
+/* tablet and desktop */
 @media (min-width: 481px) {
   .not-fixed {
     position: absolute;
@@ -378,6 +380,7 @@ button:focus {
     max-width: 800px;
     margin: 0 auto;
     padding-bottom: 71.5px;
+    width: 95%;
   }
 
   .habit-wrapper {
@@ -398,9 +401,10 @@ button:focus {
   }
 
   .graph { 
-  margin-top: 50px;
-  height: 400px;
-  position: relative;
+    margin-top: 50px;
+    height: 400px;
+    position: relative;
+    width: 95%;
   }
 
   .graph-inner {
@@ -436,11 +440,15 @@ button:focus {
     bottom: 100%;
   }
 
-  .step2-rectangle {
-    height: 150px;  
-    width: 1440px;
+  .step2-rectangle { 
+    width: 100%;
     padding-top: 45px;
-    padding-left: 250px;
+    padding-left: 15%;
+    padding-right: 15%;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .step2-text {
@@ -455,9 +463,23 @@ button:focus {
   }
 
   .get-actions-bttn {
-    margin-right: 350px;
-    margin-top: -35px;
-    float: right;
+    margin-left: 20px;
+    /*margin-top: -60px;*/
   }
 }
+
+/* tablet */
+/*@media only screen and (min-width : 768px) and (max-width: 1023px) {
+  .habits-columns {
+    width: 95%;
+  }
+
+  .step2-text-body {
+    font-size: 16px;
+  }
+
+  .get-actions-bttn {
+    margin-left: 500px;
+  }
+}*/
 </style>
