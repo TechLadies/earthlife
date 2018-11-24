@@ -183,8 +183,7 @@
   /*height: 150px;  */
   /*width: 1440px;*/
   position: static;
-  /*padding: 20px 10px 100px 50px;*/
-  padding: 43px 250px 43px 230px;
+  padding: 20px 15px 100px 50px;
   background-color: #F4F6F8;  
   box-shadow: 0 -1px 2px 0 rgba(0,0,0,0.05);
   bottom: 0;
@@ -211,14 +210,38 @@
   font-weight: 500;    
 }
 
-
 .get-actions-bttn {
   padding: 0;
+  display: inline;
+  /*padding-left: 175px;*/
 }
 
 .get-actions {
   margin-top: 25px;
   float: left;
+  color: white;
+  font-size: 16px;
+  border: none;
+  transition: 0.5s;
+  line-height: 25px;  
+  height: 48px; 
+  width: 165px; 
+  border-radius: 24px;  
+  background-color: #4E4D86;
+  padding-right: 20px;
+}
+
+.get-actions:hover {
+  background-color: #2b3174;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  height: 14px;
+  width: auto;
+  padding-left: 10px;
+  margin-top: 6px;
+  position: absolute;
 }
 
 .incomplete-habit-wrapper {
@@ -397,7 +420,7 @@
     line-height: 30px;
   }*/
 
-  .get-actions-bttn {
+  /*.get-actions-bttn {
     display: inline;
     padding-left: 175px;
   }
@@ -418,15 +441,15 @@
   .get-actions:hover {
     background-color: #2b3174;
     cursor: pointer;
-  }
+  }*/
 
-  .arrow-icon {
+  /*.arrow-icon {
     height: 14px;
     width: auto;
     padding-left: 10px;
     margin-top: 6px;
     position: absolute;
-  }
+  }*/
 
   button:focus {
     outline: 0;
