@@ -103,6 +103,7 @@
 .not-fixed {
   position: inherit;
   padding-bottom: 40px;
+  width: 100%;
 }
 
 .habit-img {
@@ -114,14 +115,26 @@
   padding-top: 32pt;
   font-size: 16pt;
   line-height: 25pt;
+  text-align: center;
+  color: #403E3D; 
+  font-family: Poppins;    
+  font-weight: 500;   
 }
 
 .result-text{
-  font-size: 16px;
   padding-top: 56pt;
   margin-bottom: -24pt;
 }
 
+.social-buttons {
+  margin: 10px;
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  background-color: #DFE3E8;
+  padding-top: 14px; 
+  }
 
 .habit-name {
   font-size: 6px;
@@ -135,7 +148,7 @@
 }
 
 .result-image {
-  width: 95%;
+  width: 100%;
   padding-top: 32pt;
   padding-bottom: 24pt;
 }
@@ -218,16 +231,6 @@
 
   .buttons {
     text-align: center;
-  }
-
-  .social-buttons {
-    margin: 10px;
-    display: inline-block;
-    height: 48px;
-    width: 48px;
-    border-radius: 24px;
-    background-color: #DFE3E8;
-    padding-top: 14px; 
   }
 
   .result-text {
