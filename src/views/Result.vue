@@ -122,8 +122,18 @@
 }
 
 .result-text{
-  padding-top: 56pt;
-  margin-bottom: -24pt;
+  padding-top: 40pt;
+  margin-bottom: 24pt;
+  color: #403E3D; 
+  font-family: Poppins;   
+  font-size: 24px;    
+  font-weight: 500;   
+  line-height: 35px;  
+  text-align: center;
+}
+
+.buttons {
+  text-align: center;
 }
 
 .social-buttons {
@@ -170,20 +180,37 @@
 .step2-rectangle {
   height: 25%;
   width: 100%;
+  /*height: 150px;  */
+  /*width: 1440px;*/
   position: static;
-  padding: 20px 10px 100px 50px;
+  /*padding: 20px 10px 100px 50px;*/
+  padding: 43px 250px 43px 230px;
+  background-color: #F4F6F8;  
+  box-shadow: 0 -1px 2px 0 rgba(0,0,0,0.05);
+  bottom: 0;
 }
 
 .step2-text {
   font-size: 12px;
+  /*font-size: 16px; */
+  font-weight: 500;
   letter-spacing: 3.08px;
+  /*letter-spacing: 4.1px; */
+  color: #637381; 
+  line-height: 25px;
+  display: block;
 }
 
 .step2-text-body {
   font-size: 16px;
+  /*font-size: 20px; */
   line-height: 25px;
+  /*line-height: 30px;*/
   max-width: 280px;
+  color: #212B36;  
+  font-weight: 500;    
 }
+
 
 .get-actions-bttn {
   padding: 0;
@@ -193,14 +220,67 @@
   margin-top: 25px;
   float: left;
 }
+
+.incomplete-habit-wrapper {
+  display: inline-block;
+  flex: 1;
+  margin-left: 15%;
+  text-align: center;
+}
+
 .incomplete-box {
   padding-bottom: 20px;
   margin-left: 5%;
   margin-right: 5%;
+  border-radius: 6px; 
+  background-color: #fdf8e7;
   width: auto;
 }
 .incomplete-buttons {
-  margin-left: 15%;
+  border-radius: 24px;  
+  background-color: #FFFFFF;
+  color: #454F5B;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  display: inline-block;
+  padding: 12px 20px;
+  text-decoration: none;
+}
+
+.incomplete-icon {
+  color: #9C6F19;
+  position: absolute;
+  left: 45%;
+  margin-top: 20px;
+}
+
+.incomplete-title-text {
+  font-size: 20px;
+  text-align: center;
+  line-height: 20px;
+  color: #212B36;
+  padding-top: 40px;
+  padding-bottom: 12px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.incomplete-box-desc {
+  color: #212B36;
+  font-size: 16px;
+  line-height: 20px;
+  padding-bottom: 32px;
+  margin: 0;
+}
+
+.incomplete-box-inner {
+  padding-top: 28px;
+  padding-left: 72px;
+  padding-right: 72px;
+}
+
+.button-wrapper {
+  text-align: center;
 }
 
 /* desktop and tablet */
@@ -209,15 +289,6 @@
     position: absolute;
     width: 100%;
     padding-bottom: 200px;
-  }
-
-  .result-header {
-    color: #403E3D; 
-    font-family: Futura;    
-    font-size: 32px;    
-    line-height: 42px;  
-    text-align: center;
-    padding-top: 73px;
   }
 
   .result-image {
@@ -229,17 +300,7 @@
     padding-bottom: 37px;
   }
 
-  .buttons {
-    text-align: center;
-  }
-
   .result-text {
-    color: #403E3D; 
-    font-family: Poppins;   
-    font-size: 24px;    
-    font-weight: 500;   
-    line-height: 35px;  
-    text-align: center;
     padding-top: 88.5px;
   }
 
@@ -257,10 +318,6 @@
     width: 130px;
   }
 
-  .incomplete-habit-wrapper {
-    display: inline-block;
-    flex: 1;
-  }
 
   .habit-name {
     color: #403E3D; 
@@ -314,7 +371,7 @@
     bottom: 100%;
   }
 
-  .step2-rectangle {
+ /* .step2-rectangle {
     background-color: #F4F6F8;  
     box-shadow: 0 -1px 2px 0 rgba(0,0,0,0.05);
     height: 150px;  
@@ -338,7 +395,7 @@
     font-size: 20px;  
     font-weight: 500; 
     line-height: 30px;
-  }
+  }*/
 
   .get-actions-bttn {
     display: inline;
@@ -373,56 +430,6 @@
 
   button:focus {
     outline: 0;
-  }
-
-  .incomplete-box {
-    padding-bottom: 20px; 
-    width: 620px; 
-    border-radius: 6px; 
-    background-color: #fdf8e7;
-    margin-left: 25%;
-    margin-right: 25%;
-  }
-
-  .incomplete-icon {
-    color: #9C6F19;
-    position: absolute;
-    margin-left: 30px;
-    margin-top: 20px;
-  }
-
-  .incomplete-title-text {
-    font-size: 20px;
-    line-height: 20px;
-    color: #212B36;
-    padding-bottom: 12px;
-    font-weight: 500;
-    margin: 0;
-  }
-
-  .incomplete-box-desc {
-    color: #212B36;
-    font-size: 16px;
-    line-height: 20px;
-    padding-bottom: 32px;
-    margin: 0;
-  }
-
-  .incomplete-buttons {
-    border-radius: 24px;  
-    background-color: #FFFFFF;
-    color: #454F5B;
-    margin-right: 12px;
-    margin-bottom: 12px;
-    display: inline-block;
-    padding: 12px 20px;
-    text-decoration: none;
-  }
-
-  .incomplete-box-inner {
-    padding-top: 28px;
-    padding-left: 72px;
-    padding-right: 72px;
   }
 }
 </style>
