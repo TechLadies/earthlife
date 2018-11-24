@@ -102,13 +102,12 @@
 /* mobile first */
 .not-fixed {
   position: inherit;
-  padding-bottom: 40px;
   width: 100%;
 }
 
 .habit-img {
   height: auto;
-  width: 33px;
+  width: 30px;
 }
 
 .result-header {
@@ -148,13 +147,31 @@
 
 .habit-name {
   font-size: 6px;
+  /*font-size: 12px;  */
   letter-spacing: 0.7px;
+  /*letter-spacing: 1.4px;  */
+  color: #403E3D; 
+  line-height: 30px;
+  text-transform: uppercase; 
 }
+
 .habits-bar {
   padding: 0 20px;
 }
+
+.habit-wrapper {
+  width: 130px;
+}
+
 .habits-columns {
   max-width: 320px;
+  /*max-width: 800px;*/
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding-top: 20px;
+  margin: 0 auto;
+  padding-bottom: 71.5px;
 }
 
 .result-image {
@@ -165,16 +182,46 @@
 
 .bar {
   width: 30px;
+  /*width: 64px;*/
   margin-left: -16px;
+  /*margin-left: -32px;*/
+  background-color: #EE6F84;
+  position: absolute;
+  left: 50%;
+  border-radius: 0 0 4px 4px;
 }
 
 .graph {
   padding-right: 16px;
   padding-left: 16px;
+  margin-top: 30px;
+  height: 350px;
+  position: relative;
 }
 
 .graph-inner {
   width: 95%;
+  /*width: 100%;*/
+  position: absolute;
+  top: 30%;  
+}
+
+.baseline {
+  padding: 0;
+  border: 0.5px solid #C4CDD5;
+  height: 1px;
+}
+
+.baseline .habit-wrapper {
+  position: relative;
+  height: 200px;
+}
+
+.positive {
+  bottom: 0;
+  background-color: #70C48B;
+  border-radius: 4px 4px 0 0;
+  bottom: 100%;
 }
 
 .step2-rectangle {
@@ -327,7 +374,7 @@
     padding-top: 88.5px;
   }
 
-  .habits-columns {
+  /*.habits-columns {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -392,64 +439,9 @@
     background-color: #70C48B;
     border-radius: 4px 4px 0 0;
     bottom: 100%;
-  }
-
- /* .step2-rectangle {
-    background-color: #F4F6F8;  
-    box-shadow: 0 -1px 2px 0 rgba(0,0,0,0.05);
-    height: 150px;  
-    width: 1440px;
-    padding: 43px 250px 43px 230px;
-    position: fixed;
-    bottom: 0;
-  }
-
-  .step2-text {
-    color: #637381; 
-    font-size: 16px;  
-    font-weight: 500; 
-    letter-spacing: 4.1px;  
-    line-height: 25px;
-    display: block;
-  }
-
-  .step2-text-body {
-    color: #212B36; 
-    font-size: 20px;  
-    font-weight: 500; 
-    line-height: 30px;
   }*/
 
-  /*.get-actions-bttn {
-    display: inline;
-    padding-left: 175px;
-  }
-
-  .get-actions {
-    color: white;
-    font-size: 16px;
-    border: none;
-    transition: 0.5s;
-    line-height: 25px;  
-    height: 48px; 
-    width: 165px; 
-    border-radius: 24px;  
-    background-color: #4E4D86;
-    padding-right: 20px;
-  }
-
-  .get-actions:hover {
-    background-color: #2b3174;
-    cursor: pointer;
-  }*/
-
-  /*.arrow-icon {
-    height: 14px;
-    width: auto;
-    padding-left: 10px;
-    margin-top: 6px;
-    position: absolute;
-  }*/
+ 
 
   button:focus {
     outline: 0;
