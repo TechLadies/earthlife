@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <div class="top-banner" :class="{ 'show': $route.path !=='/' }">
-      <a href="http://earthfestsingapore.com/">Visit the Earthfest 2018 site <v-icon class='arrow' name="arrow-right"/></a>
+      <a href="http://earthfestsingapore.com/">Visit the Earthfest {{year}} site <v-icon class='arrow' name="arrow-right"/></a>
     </div>
     <div class="global-earthlife-nav">EARTHLIFE
     </div>
@@ -16,7 +16,13 @@ export default {
       show: false
     };
   },
-  components: {}
+  components: {},
+  computed: {
+    year: function() {
+      var today = new Date();
+      return today.getFullYear();
+    }
+  }
 };
 </script>
 

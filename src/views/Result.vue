@@ -48,7 +48,7 @@
       <span class="step2-text">STEP 2</span>
       <span class="step2-text-body">Get some actions on how to level up your sustainable living!</span>
       <div class="get-actions-bttn">
-        <button class="get-actions">Get actions<v-icon name="arrow-right" class="arrow-icon"/></button>
+        <button class="get-actions" @click="goToAction">Get actions<v-icon name="arrow-right" class="arrow-icon"/></button>
       </div>
     </div>
   </div>
@@ -70,9 +70,14 @@
       },
       completedCategoryScore () {
         return this.$store.getters.completedCategoryScore
+      },
+    },
+    methods: {
+      goToAction: function() {
+        this.$router.push({ name: 'actions' });
       }
     }
-  }
+  };
 </script>
 
 <style>

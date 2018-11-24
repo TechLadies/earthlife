@@ -69,5 +69,7 @@ input[type='radio'] {
 .answer-selected {
   background-color: #4e4d86;
   color: white;
+  transition-property: background-color;
+  transition-duration: 0.3s;
 }
 </style>

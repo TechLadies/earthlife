@@ -130,6 +130,7 @@ export default {
   border-radius: 10000px;
   margin-top: 20px;
   padding-top: 5px;
+  border: none;
+  cursor: pointer;
 }
-
 </style>

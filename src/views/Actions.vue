@@ -14,28 +14,26 @@
   <div class="actions-pledge" v-else> 
     <div class="cards-wrapper">
       <div class="cards">
-        <div class="current-card">
-          <h1> {{ actions.category }} </h1>
+        <div v-for="card in actions.cardsOrder.slice(0,2)" :class="card + '-card'" :key="card"></div>
+        <div class="current-card" :class="actions.cardsOrder[2] + '-card'">
+          <h1> {{ actions.item[actionCounter] ? actions.item[actionCounter].category : '' }} </h1>
           <hr/>
-          <img class="current-card-image" v-bind:src='imgName(actions.item.id)' />
-          <p class="current-card-message">{{ actions.item.text }}</p>
+          <img class="current-card-image" v-if="this.actions.item[actionCounter].linkImage" v-bind:src="this.actions.item[actionCounter].linkImage" />
+          <div class="add-space" v-else></div>
+          <p class="current-card-message">{{ actions.item[actionCounter].text }}</p>
         </div>
-        <div class="orange-card"></div>
-        <div class="green-card"></div> 
       </div>
     </div>
     <div class="options-wrapper">
       <div class="options">
-        <div class="no">
-          <button @click="{ incompleteActionList ? actionCounter++: ''  }" class="label">Not Now</button>
+        <button  @click="nextItem" class="no option-button"><span class="label">Not Now</span>
           <br>
           <v-icon class="gray" name="arrow-left"/>
-        </div>
-        <div class="yes">
-          <button @click="{  incompleteActionList ? actionCounter++: '' }" class="label">I'll Do It</button> 
+        </button>
+        <button @click="nextItem" class="yes option-button"><span class="label">I'll Do It</span>
           <br>
           <v-icon class="gray" name="arrow-right"/>
-        </div>
+        </button>
       </div>
     </div>
   </div>
@@ -56,39 +54,53 @@ export default {
   },
   computed: {
     actions: function() {
-      let actionCategory = this.$store.state.actionList[this.categoryCounter]
-        .category;
-      let currentCategory = this.$store.state.actionList[this.categoryCounter];
-      let actionItem = currentCategory.actions[this.actionCounter];
+      let actionRemoveList = this.$store.state.actionRemoveList;
+      this.$store.state.completedCategoriesListing = this.$store.getters.completedCategories.map(
+        category => category.title
+      );
+
+      let showActionItem = [];
+
+      showActionItem = this.$store.state.actionList
+        .filter(item =>
+          this.$store.state.completedCategoriesListing.includes(item.category)
+        )
+        .flatMap(category => category.actions)
+        .filter(action => !actionRemoveList.includes(action.id));
+
+      console.log(this.$store.state.actionList);
+      console.log(showActionItem);
+
+      let completedCategory = this.$store.state.completedCategoriesListing;
+      let showCategory = this.$store.state.actionList.filter;
+      let cards = [];
+
+      if (this.actionCounter % 3 === 0) {
+        cards = ['red', 'orange', 'green'];
+      } else if (this.actionCounter % 3 === 1) {
+        cards = ['green', 'red', 'orange'];
+      } else if (this.actionCounter % 3 === 2) {
+        cards = ['orange', 'green', 'red'];
+      }
 
       return {
-        category: actionCategory,
-        currentCategory: currentCategory,
-        item: actionItem
+        item: showActionItem,
+        actionRemoveList: actionRemoveList,
+        completedCategory: completedCategory,
+        cardsOrder: cards
       };
     }
   },
+
   methods: {
     changePage: function() {
       this.showIntroMessage = !this.showIntroMessage;
     },
-    imgName: function(item) {
-      return require('../assets/actions/action-' + item.toLowerCase() + '.svg');
-    },
     nextItem: function() {
-      if (
-        this.currentCategory.actions.length - 1 === this.actionCounter &&
-        this.categoryCounter !== this.$store.state.actionList.length - 1
-      ) {
-        this.categoryCounter++;
-        this.actionCounter = 0;
-      }
+      let endCounter = this.actions.item.length - 1;
 
-      if (
-        this.categoryCounter == this.$store.state.actionList.length - 1 &&
-        this.currentCategory.actions.length - 1 === this.actionCounter
-      ) {
-        this.incompleteActionList = false; // this is to stop the function when user has looked through all actions
+      if (this.incompleteActionList && this.actionCounter !== endCounter) {
+        this.actionCounter++;
       }
     }
   }
@@ -101,7 +113,7 @@ button {
   color: inherit;
   border: none;
   padding: 0;
-  font: inherit;
+  /* font: inherit; */
   cursor: pointer;
   outline: inherit;
 }
@@ -144,15 +156,12 @@ input[type='radio'] {
 
 .next {
   background-color: #4e4d86;
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 100px;
   color: white;
   margin: 0 auto;
-}
-
-.next-content {
-  padding-top: 3px;
+  padding-top: 5px;
 }
 
 .actions-intro-message {
@@ -185,15 +194,8 @@ input[type='radio'] {
 }
 
 .current-card {
-  border-radius: 10px;
-  z-index: 5;
   position: absolute;
-  margin: auto;
-  border: 20px solid #d45c86;
   width: 100%;
-  height: 100%;
-  background-color: white;
-  margin: auto;
 }
 
 .current-card-image {
@@ -212,33 +214,38 @@ input[type='radio'] {
 .current-card-message {
   margin: 0 auto;
   font-size: 17px;
-  margin-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0 5px;
 }
 
 hr {
   width: 24px;
 }
-.green-card {
+
+.red-card,
+.green-card,
+.orange-card {
   position: absolute;
-  left: 0;
-  background-color: #53b687;
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  transform: rotate(2deg);
-  z-index: 4;
+  background-color: white;
+}
+
+.red-card {
+  border: 20px solid #d45c86;
+}
+
+.green-card {
+  border: 20px solid #53b687;
+  transform: rotate(3deg);
 }
 
 .orange-card {
-  position: absolute;
-  background-color: #f2a069;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
+  border: solid 20px #f2a069;
   transform: rotate(-3deg);
-  left: 0;
 }
 
 .no,
@@ -266,17 +273,35 @@ hr {
 }
 
 .label {
-  margin-top: 60px;
+  margin-top: 10px !important;
+  display: inline-block;
 }
 
 .back-button a {
   padding-left: 5px;
 }
 
+.option-button:hover {
+  background-color: #f8f8f8;
+  opacity: 0.8;
+}
+
+.add-space {
+  height: 13em;
+}
+
 @media only screen and (max-width: 700px) {
   .actions-intro-message {
     width: 90%;
     padding-top: 80px;
+  }
+
+  .add-space {
+    height: 10em;
+  }
+
+  .label {
+    margin-top: 10px !important;
   }
 
   .options-wrapper {

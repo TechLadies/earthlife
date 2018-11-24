@@ -57,7 +57,7 @@ export default new Router({
     },
 
     {
-      path: '/result',
+      path: '/results',
       name: 'result',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -72,18 +72,17 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/Actions.vue")
+        import(/* webpackChunkName: "about" */ './views/Actions.vue')
     },
-    
-     {
+
+    {
       path: '/todo',
       name: 'todo',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/ToDo.vue")
-
-    },
+        import(/* webpackChunkName: "about" */ './views/ToDo.vue')
+    }
   ]
 });

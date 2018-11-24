@@ -8,32 +8,34 @@ export default new Vuex.Store({
   state: {
     categories: [],
     questions: {},
-    actionList: []
+    actionList: [],
+    removedActions: [],
+    actionRemoveList: [],
+    completedCategoriesListing: []
   },
 
   getters: {
     completedCategories: state => {
       // return state.categories.filter(category => { return category.completed })
-
       let resultIfAnswered = state.categories.filter(function(c){
         let questionObjects = c.questions.map(function(id){
            return state.questions[id];
         });
         let allAnswered = true;
-        let answerArray = questionObjects.map(function(x){
+        let answerArray = questionObjects.map(function(x) {
           let answered = false;
-          x.options.forEach(function(y){
-            if(y.selected === true){
+          x.options.forEach(function(y) {
+            if (y.selected === true) {
               answered = true;
             }
-          })
+          });
           return answered;
-        })
-        answerArray.forEach(function(e){
-          if (e === false){
+        });
+        answerArray.forEach(function(e) {
+          if (e === false) {
             allAnswered = false;
           }
-        })
+        });
         return allAnswered;
       });
       return resultIfAnswered;
@@ -87,29 +89,7 @@ export default new Vuex.Store({
        })
       console.log("allCompletedCategoryScores", allCompletedCategoryScores);
       return allCompletedCategoryScores;
-
-
-
-
-
-      // const { uncompletedCategories } = store;
-      // const questions = uncompletedCategories.filter(function(c){
-      //   let questionObjects = c.questions.map(function(id){
-      //      return state.questions[id];
-      //    });
-      //   const isSelected = questionObjects.filter(function(q){
-      //     q.options.filter(function(s){
-      //       if (s.selected) {
-      //         return s;  
-      //       }
-      //     });
-      //   })
-      //   return isSelected;
-      //   debugger
-      // });
-      
     },
-
   },
 
   mutations: {
@@ -121,7 +101,9 @@ export default new Vuex.Store({
           slug: slug,
           title: item.category,
           description: item.description,
-          imageUrl: item.image,
+          imageUrl: require('./assets/category_title/' +
+            item.category +
+            '.png'),
           buttonUrl: item.button,
           completed: false,
           questions: []
@@ -152,7 +134,9 @@ export default new Vuex.Store({
             category: q.category,
             options: [answer],
             type: q.type,
-            imageUrl: q.imageurl
+            imageUrl: q.imageurl,
+            linkTitle: q.linktitle,
+            linkUrl: q.linkurl
           };
         }
       });
@@ -184,7 +168,13 @@ export default new Vuex.Store({
           let index = state.actionList.indexOf(categoryExist[0]); //get the index
           let action = {
             id: d._cn6ca,
-            text: d.action
+            text: d.action,
+            linkTitle: d.linktitle,
+            linkUrl: d.linkurl,
+            linkImage: d.imageurl,
+            category: d.theme,
+            show: true
+            // show: true //this will allow us to un-show if the response indicates removing an action.
           };
 
           state.actionList[index].actions.push(action); //add action at the index
@@ -195,7 +185,12 @@ export default new Vuex.Store({
             actions: [
               {
                 id: d._cn6ca,
-                text: d.action
+                text: d.action,
+                linkTitle: d.linktitle,
+                linkUrl: d.linkurl,
+                category: d.theme,
+                linkImage: d.imageurl,
+                show: true
               }
             ]
           };
@@ -205,11 +200,21 @@ export default new Vuex.Store({
       });
 
       console.log(state.actionList);
+    },
+
+    addToRemoveActionList(state, action) {
+      state.removedActions.push(action);
+    },
+
+    deleteFromRemoveActionList(state, action) {
+      state.removedActions = state.removedActions.filter(removedAction => {
+        return removedAction != action;
+      });
     }
   },
   actions: {
     async getData() {
-      const metrics_id = '1not5_VpoAmpEDRBFEudT32O0OlXddV6I9iEX1AszFrA';
+      const metrics_id = '16P4b-726-yKd8LXRzgbo5BnQlBgwlYpxzW-scqorM-I';
       const sheet1 = await GetSheetDone.labeledCols(metrics_id, 1);
       const sheet2 = await GetSheetDone.labeledCols(metrics_id, 2);
       const sheet3 = await GetSheetDone.labeledCols(metrics_id, 3);

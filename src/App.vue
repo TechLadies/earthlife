@@ -5,7 +5,9 @@
       Loading...
     </div>
     <div v-if="!isLoading">
-      <router-view/>
+      <transition name="fade">
+        <router-view/>
+      </transition>
     </div>
   </div>
 </template>
@@ -16,11 +18,11 @@ export default {
   name: 'App',
   data: function() {
     return {
-      show: false
+      show: false,
     };
   },
   components: {
-    Navigation: Navigation
+    Navigation: Navigation,
   },
   computed: {
     isLoading() {
@@ -28,11 +30,11 @@ export default {
       const loaded =
         categories.length && Object.keys(questions).length && actionList.length;
       return !loaded;
-    }
+    },
   },
   created: function() {
     this.$store.dispatch('getData');
-  }
+  },
 };
 </script>
 
@@ -44,6 +46,15 @@ export default {
 *::after,
 *::before {
   box-sizing: border-box;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
 #app {
