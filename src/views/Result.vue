@@ -338,10 +338,7 @@
   padding-top: 28px;
   padding-left: 72px;
   padding-right: 72px;
-}
-
-.button-wrapper {
-  text-align: center;
+  text-align: center
 }
 
 button:focus {
