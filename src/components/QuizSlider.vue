@@ -189,6 +189,7 @@ input[type='range']::-ms-tooltip {
   white-space: nowrap;
   display: flex;
   justify-content: center;
+  font-size: 16px;
 }
 
 .range-point:before {
@@ -199,5 +200,11 @@ input[type='range']::-ms-tooltip {
   width: 8px;
   border-radius: 50%;
   background-color: #c4cdd5;
+}
+
+@media only screen and (max-width: 500px) {
+  .range-point {
+    font-size: 12px;
+  }
 }
 </style>
