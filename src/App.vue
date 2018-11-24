@@ -18,11 +18,11 @@ export default {
   name: 'App',
   data: function() {
     return {
-      show: false
+      show: false,
     };
   },
   components: {
-    Navigation: Navigation
+    Navigation: Navigation,
   },
   computed: {
     isLoading() {
@@ -30,11 +30,11 @@ export default {
       const loaded =
         categories.length && Object.keys(questions).length && actionList.length;
       return !loaded;
-    }
+    },
   },
   created: function() {
     this.$store.dispatch('getData');
-  }
+  },
 };
 </script>
 
