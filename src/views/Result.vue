@@ -147,9 +147,7 @@
 
 .habit-name {
   font-size: 6px;
-  /*font-size: 12px;  */
   letter-spacing: 0.7px;
-  /*letter-spacing: 1.4px;  */
   color: #403E3D; 
   line-height: 30px;
   text-transform: uppercase; 
@@ -165,7 +163,6 @@
 
 .habits-columns {
   max-width: 320px;
-  /*max-width: 800px;*/
   display: flex;
   text-align: center;
   justify-content: center;
@@ -182,9 +179,7 @@
 
 .bar {
   width: 30px;
-  /*width: 64px;*/
   margin-left: -16px;
-  /*margin-left: -32px;*/
   background-color: #EE6F84;
   position: absolute;
   left: 50%;
@@ -201,7 +196,6 @@
 
 .graph-inner {
   width: 95%;
-  /*width: 100%;*/
   position: absolute;
   top: 30%;  
 }
@@ -289,12 +283,12 @@
   position: absolute;
 }
 
-.incomplete-habit-wrapper {
+/*.incomplete-habit-wrapper {
   display: inline-block;
   flex: 1;
   margin-left: 15%;
   text-align: center;
-}
+}*/
 
 .incomplete-box {
   padding-bottom: 20px;
@@ -357,11 +351,11 @@ button:focus {
 
 /* desktop and tablet */
 @media (min-width: 481px) {
- /* .not-fixed {
+  .not-fixed {
     position: absolute;
     width: 100%;
     padding-bottom: 200px;
-  }*/
+  }
 
   .result-image {
     display: block;
@@ -407,7 +401,6 @@ button:focus {
   .habit-wrapper {
     width: 130px;
   }
-
 
   .habit-name {
     color: #403E3D; 
@@ -461,8 +454,28 @@ button:focus {
     bottom: 100%;
   }
 
- 
+  .step2-rectangle {
+    height: 150px;  
+    width: 1440px;
+    padding-top: 45px;
+    padding-left: 250px;
+  }
 
+  .step2-text {
+    font-size: 16px; 
+    letter-spacing: 4.1px; 
+    
+  }
 
+  .step2-text-body {
+    font-size: 20px; 
+    line-height: 30px;   
+  }
+
+  .get-actions-bttn {
+    margin-right: 350px;
+    margin-top: -35px;
+    float: right;
+  }
 }
 </style>
