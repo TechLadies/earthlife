@@ -321,7 +321,7 @@ export default {
 }
 
 .habit-category {
-  width: 38px;
+  width: 36px;
   height: auto;
   margin-left: 10.5px;
   filter: grayscale(100%);

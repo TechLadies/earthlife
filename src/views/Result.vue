@@ -7,7 +7,7 @@
         <a class="social-buttons">
           <v-icon name="download"/>
         </a>
-        <a class="social-buttons">
+        <a class="social-buttons" @click="shareFacebook">
           <v-icon name="brands/facebook-f"/>
         </a>
       </div>
@@ -71,10 +71,28 @@
       completedCategoryScore () {
         return this.$store.getters.completedCategoryScore
       },
+      result() {
+        return {
+          title: 'zero-waste', //dummy
+          imgUrl: ''
+        };
+      }
     },
     methods: {
       goToAction: function() {
         this.$router.push({ name: 'actions' });
+      },
+      shareFacebook: function() {
+        const staticPage =
+          'http://earthfestsingapore.com/earthlife/results/' +
+          this.result.title +
+          '.html';
+
+        window.open(
+          'https://www.facebook.com/sharer/sharer.php?u=' + staticPage,
+          'pop',
+          'width=600, height=400, scrollbars=no'
+        );
       }
     }
   };
@@ -351,7 +369,7 @@
   width: 48px;
   border-radius: 24px;
   background-color: #DFE3E8;
-  padding-top: 14px; 
+  padding-top: 14px;
 }
 
 .result-text {
