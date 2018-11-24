@@ -220,10 +220,8 @@
 .step2-rectangle {
   height: 25%;
   width: 100%;
-  /*height: 150px;  */
-  /*width: 1440px;*/
   position: static;
-  padding: 20px 15px 100px 50px;
+  padding: 20px 15px 50px 50px;
   background-color: #F4F6F8;  
   box-shadow: 0 -1px 2px 0 rgba(0,0,0,0.05);
   bottom: 0;
@@ -231,10 +229,8 @@
 
 .step2-text {
   font-size: 12px;
-  /*font-size: 16px; */
   font-weight: 500;
   letter-spacing: 3.08px;
-  /*letter-spacing: 4.1px; */
   color: #637381; 
   line-height: 25px;
   display: block;
@@ -242,9 +238,7 @@
 
 .step2-text-body {
   font-size: 16px;
-  /*font-size: 20px; */
   line-height: 25px;
-  /*line-height: 30px;*/
   max-width: 280px;
   color: #212B36;  
   font-weight: 500;    
@@ -252,7 +246,6 @@
 
 .get-actions-bttn {
   padding: 0;
-  /*padding-left: 175px;*/
 }
 
 .get-actions {
@@ -281,13 +274,6 @@
   margin-top: 6px;
   position: absolute;
 }
-
-/*.incomplete-habit-wrapper {
-  display: inline-block;
-  flex: 1;
-  margin-left: 15%;
-  text-align: center;
-}*/
 
 .incomplete-box {
   padding-bottom: 20px;
