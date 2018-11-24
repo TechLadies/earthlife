@@ -18,11 +18,11 @@ export default {
   name: 'App',
   data: function() {
     return {
-      show: false,
+      show: false
     };
   },
   components: {
-    Navigation: Navigation,
+    Navigation: Navigation
   },
   computed: {
     isLoading() {
@@ -30,11 +30,11 @@ export default {
       const loaded =
         categories.length && Object.keys(questions).length && actionList.length;
       return !loaded;
-    },
+    }
   },
   created: function() {
     this.$store.dispatch('getData');
-  },
+  }
 };
 </script>
 
@@ -64,15 +64,6 @@ export default {
   text-align: left;
   color: #2c3e50;
   height: 100%;
-}
-
-.global-earthlife-nav {
-  padding: 25px 15%;
-  color: #212b36;
-  font-size: 16px;
-  letter-spacing: 3px;
-  line-height: 25px;
-  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .show {
