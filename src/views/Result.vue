@@ -259,13 +259,11 @@
 
 .get-actions-bttn {
   padding: 0;
-  display: inline;
   /*padding-left: 175px;*/
 }
 
 .get-actions {
   margin-top: 25px;
-  float: left;
   color: white;
   font-size: 16px;
   border: none;
@@ -353,13 +351,17 @@
   text-align: center;
 }
 
+button:focus {
+  outline: 0;
+}
+
 /* desktop and tablet */
 @media (min-width: 481px) {
-  .not-fixed {
+ /* .not-fixed {
     position: absolute;
     width: 100%;
     padding-bottom: 200px;
-  }
+  }*/
 
   .result-image {
     display: block;
@@ -370,15 +372,33 @@
     padding-bottom: 37px;
   }
 
-  .result-text {
+  .result-header {
     padding-top: 88.5px;
+    color: #403E3D; 
+    font-family: Futura;  
+    font-size: 32px;  
+    line-height: 42px;  
+    text-align: center;
   }
 
-  /*.habits-columns {
+  .result-text {
+    color: #403E3D; 
+    font-family: Poppins; 
+    font-size: 24px;  
+    font-weight: 500; 
+    line-height: 35px;  
+    text-align: center;
+  }
+
+  .habit-img {
+    width: 65px;
+    height: auto;
+  }
+
+  .habits-columns {
     display: flex;
     text-align: center;
     justify-content: center;
-    padding-top: 71.5px;
     max-width: 800px;
     margin: 0 auto;
     padding-bottom: 71.5px;
@@ -439,12 +459,10 @@
     background-color: #70C48B;
     border-radius: 4px 4px 0 0;
     bottom: 100%;
-  }*/
+  }
 
  
 
-  button:focus {
-    outline: 0;
-  }
+
 }
 </style>
