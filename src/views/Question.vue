@@ -40,7 +40,7 @@
       <img class="habit-category" src="../assets/images/buttons/plant-based-diet.png" :class="{'finished' : this.checkCompleted[0]}">
       <img class="habit-category" src="../assets/images/buttons/zero-waste.png" :class="{'finished' : this.checkCompleted[1]}">
       <img class="habit-category" src="../assets/images/buttons/advocacy.png" :class="{'finished' : this.checkCompleted[2]}">
-      <img class="habit-category" src="../assets/images/buttons/co2.png" :class="{'finished' : this.checkCompleted[3]}">
+      <img class="habit-category" src="../assets/images/buttons/co2-positive.png" :class="{'finished' : this.checkCompleted[3]}">
       <img class="habit-category" src="../assets/images/buttons/minimalism.png" :class="{'finished' : this.checkCompleted[4]}">
       <img class="habit-category" src="../assets/images/buttons/biophilia.png" :class="{'finished' : this.checkCompleted[5]}">
     </div>
