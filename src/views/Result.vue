@@ -102,7 +102,6 @@
 /* mobile first */
 .not-fixed {
   position: inherit;
-  width: 100%;
 }
 
 .habit-img {
