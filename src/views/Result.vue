@@ -28,9 +28,9 @@
         </div> <!-- graph inner -->
       </div> <!--graph -->
       <div class="incomplete-box" v-if="uncompletedCategories.length > 0">
-        <a class="incomplete-icon">
+        <div class="incomplete-icon">
             <v-icon name="exclamation-circle" scale="2"/>
-        </a>
+        </div>
         <div class="incomplete-box-inner">
           <div class="incomplete-box-title">
             <h2 class="incomplete-title-text">Oops! You didn't complete all 6 living habits.</h2>
