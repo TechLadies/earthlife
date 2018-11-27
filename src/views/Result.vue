@@ -4,7 +4,7 @@
       <div class="result-header">Results</div>
       <img class="result-image" :src="require('../assets/images/result/' + bestCategory.slug + '.jpg')" v-if="bestCategory != undefined"/>
       <div class="buttons">
-        <a class="social-buttons">
+        <a class="social-buttons" :href="require('../assets/images/result/'+result.title+'.jpg')" :download="result.title+'.jpg'">
           <v-icon name="download"/>
         </a>
         <a class="social-buttons" @click="shareFacebook">
@@ -78,9 +78,17 @@
         return this.$store.getters.completedCategoryScore
       },
       result() {
+        //Get the highest score
+        const idx = this.completedCategoryScore.reduce(
+          (bestIndex, currentValue, currentIndex, array) =>
+            currentValue > array[bestIndex] ? currentIndex : bestIndex,
+          0
+        );
+
+        const title = this.completedCategories[idx].slug;
+
         return {
-          title: 'zero-waste', //dummy
-          imgUrl: ''
+          title: title
         };
       }
     },

@@ -45,7 +45,7 @@ export default {
   },
 
   watch: {
-    inputSelected: function(newAnswer, oldAnswer) {
+    inputSelected: function(newAnswer) {
       this.$emit('answer', newAnswer);
     }
   },

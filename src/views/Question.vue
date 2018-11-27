@@ -84,7 +84,6 @@ export default {
         questionDetails[category.questions[questionID - 1]];
       const categoryAnswers =
         questionDetails[category.questions[questionID - 1]].options;
-      const numberOfQuestions = category.questions.length;
       const categoryProgress =
         100 * (Number(questionID) / category.questions.length);
 
@@ -129,13 +128,10 @@ export default {
 
   methods: {
     getAnswers: function(answer) {
-      console.log(answer);
       this.answers = answer;
     },
 
     submit: function() {
-      console.log(this.answers);
-
       //Update value in store
       this.$store.state.questions[this.question.id].options.forEach(
         (option, index) => {
@@ -156,10 +152,6 @@ export default {
               );
             }
           }
-
-          let indexItem = this.$store.state.questions[this.question.id].options[
-            index
-          ];
           let removeAction = this.$store.state.questions[this.question.id]
             .options[index].removeAction;
           if (
@@ -169,18 +161,8 @@ export default {
           ) {
             this.$store.state.actionRemoveList.push(removeAction);
           }
-          console.log(indexItem, 'indexItem');
         }
       );
-      console.log(
-        this.$store.state.actionRemoveList,
-        'this.$store.state.actionRemoveList from question'
-      );
-
-      //store value is not updated in vue-devtools?
-      // console.log(
-      //   this.$store.state.questions[this.question.id].options[0].selected
-      // );
 
       //Check if it's the last question
       if (this.question.lastQuestion) {
@@ -271,8 +253,8 @@ export default {
   background-position: right top;
   background-color: #f4f6f8;
   overflow: hidden;
-  min-height: calc(100vh - 75px);
-  padding-bottom: 100px;
+  flex-grow: 1;
+  padding-bottom: 0px;
   position: relative;
 }
 
@@ -312,11 +294,8 @@ export default {
 }
 
 .habit-tracker {
-  /* margin-bottom: 36px;
-  margin-top: 40px; */
   margin: 0 auto;
   padding: 20px;
-  /* display: inline-block; */
   text-align: center;
 }
 
@@ -349,13 +328,19 @@ export default {
     transform: none;
     left: auto;
   }
-}
 
-@media (min-width: 600px) {
   .question-wrapper {
     background-image: url(../assets/other-3.png);
   }
+}
 
+@media (max-width: 600px) {
+  .question-wrapper {
+    padding-bottom: 100px;
+  }
+}
+
+@media (min-width: 600px) {
   .habit-tracker {
     margin-right: 36px;
     margin-bottom: 36px;
@@ -382,7 +367,6 @@ export default {
     border-radius: 10000px;
     margin: 60px 0 40px;
     cursor: pointer;
-    /* display: block; */
   }
 }
 

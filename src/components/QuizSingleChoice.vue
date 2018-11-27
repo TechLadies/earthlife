@@ -2,8 +2,7 @@
   <div class="quiz-single">
     <div v-for="answer in choices">
       <input type="radio" :id="answer.text" name="answer"
-        :value="answer.text" v-model="inputSelected" >
-      </input>
+        :value="answer.text" v-model="inputSelected" />
       <label class="question-answer" :for="answer.text" :class="{ 'answer-selected': inputSelected == answer.text}">{{ answer.text }}</label>
     </div>
   </div>     
@@ -35,7 +34,7 @@ export default {
     };
   },
   watch: {
-    inputSelected: function(newAnswer, oldAnswer) {
+    inputSelected: function(newAnswer) {
       var answers = [];
       var index = this.choices.findIndex(x => x.text == newAnswer);
       answers.push(index);

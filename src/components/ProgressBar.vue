@@ -22,5 +22,6 @@ export default {
 .progress-bar {
   height: 6px;
   background-color: #4e4d86;
+  transition: width 0.3s ease-in-out;
 }
 </style>

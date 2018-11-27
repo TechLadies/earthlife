@@ -11,7 +11,8 @@ export default new Vuex.Store({
     actionList: [],
     removedActions: [],
     actionRemoveList: [],
-    completedCategoriesListing: []
+    completedCategoriesListing: [],
+    actionTodo: []
   },
 
   getters: {
@@ -98,22 +99,18 @@ export default new Vuex.Store({
         let questionObjects = c.questions.map(function(id){
            return state.questions[id];
         });
-        console.log("questionObjects", questionObjects);
         let answerArray = questionObjects.map(function(x){
           let trueOption = x.options.find(function(y){
             return y.selected === true;
           })
-          console.log("trueOption", trueOption);
           return parseInt(trueOption.score);
         })
         let sum = 0;
         answerArray.forEach(function(e){
           sum = sum + e;
         })
-        console.log("sum", sum);
         return sum/maximumScore * 100;
        })
-      console.log("allCompletedCategoryScores", allCompletedCategoryScores);
       return allCompletedCategoryScores;
     },
   },
@@ -179,8 +176,6 @@ export default new Vuex.Store({
           }
         });
       }
-
-      console.dir(state.categories);
     },
 
     storeActions(state, data) {
@@ -224,8 +219,6 @@ export default new Vuex.Store({
           state.actionList.push(newAction);
         }
       });
-
-      console.log(state.actionList);
     },
 
     addToRemoveActionList(state, action) {

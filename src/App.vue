@@ -1,14 +1,11 @@
 <template>
   <div id="app">
     <Navigation />
-    <div v-if="isLoading">
-      Loading...
-    </div>
-    <div v-if="!isLoading">
-      <transition name="fade">
+    <template v-if="!isLoading">
+      <transition name="fade" mode="out-in">
         <router-view/>
       </transition>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -18,11 +15,11 @@ export default {
   name: 'App',
   data: function() {
     return {
-      show: false,
+      show: false
     };
   },
   components: {
-    Navigation: Navigation,
+    Navigation: Navigation
   },
   computed: {
     isLoading() {
@@ -30,11 +27,11 @@ export default {
       const loaded =
         categories.length && Object.keys(questions).length && actionList.length;
       return !loaded;
-    },
+    }
   },
   created: function() {
     this.$store.dispatch('getData');
-  },
+  }
 };
 </script>
 
@@ -63,7 +60,9 @@ export default {
   font-family: 'Poppins', sans-serif;
   text-align: left;
   color: #2c3e50;
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .show {
