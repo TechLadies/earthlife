@@ -156,6 +156,7 @@
   border-radius: 24px;
   background-color: #DFE3E8;
   padding-top: 14px; 
+  cursor: pointer;
   }
 
 .habit-name {

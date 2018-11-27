@@ -72,6 +72,7 @@ input[type='range'] {
   margin: 0px;
   position: relative;
   z-index: 10;
+  cursor: pointer;
 }
 
 input[type='range']:focus {
