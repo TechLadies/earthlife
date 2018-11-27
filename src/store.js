@@ -15,6 +15,32 @@ export default new Vuex.Store({
   },
 
   getters: {
+    bestCategory: (state, getters) => {
+      let bestCategoryScore = -999999;
+      let bestCategory;
+      let allCompletedCategoryScores = getters.completedCategories.map(function(c){
+        let maximumScore = c.questions.length * 10;
+        let questionObjects = c.questions.map(function(id){
+           return state.questions[id];
+        });
+        let answerArray = questionObjects.map(function(x){
+          let trueOption = x.options.find(function(y){
+            return y.selected === true;
+          })
+          return parseInt(trueOption.score);
+        })
+        let sum = 0;
+        answerArray.forEach(function(e){
+          sum = sum + e;
+        })
+        let score = sum/maximumScore * 100;
+        if (score > bestCategoryScore) {
+          bestCategoryScore = score;
+          bestCategory = c;
+        }
+       })
+      return bestCategory;
+    },
     completedCategories: state => {
       // return state.categories.filter(category => { return category.completed })
       let resultIfAnswered = state.categories.filter(function(c){

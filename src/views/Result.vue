@@ -2,7 +2,7 @@
   <div id="result">
     <div class="not-fixed">
       <div class="result-header">Results</div>
-      <img class="result-image" src="../assets/images/result/01_result_plantbased.jpg"/>
+      <img class="result-image" :src="require('../assets/images/result/' + bestCategory.slug + '.jpg')" v-if="bestCategory != undefined"/>
       <div class="buttons">
         <a class="social-buttons">
           <v-icon name="download"/>
@@ -66,6 +66,10 @@
       completedCategories () {
         console.log(this.$store.getters.completedCategories);
         return this.$store.getters.completedCategories
+      },
+      bestCategory () {
+        // const potato = this.$store.getters.completedCategories;
+        return this.$store.getters.bestCategory;
       },
       uncompletedCategories () {
         return this.$store.getters.uncompletedCategories
@@ -227,6 +231,7 @@
   background-color: #F4F6F8;  
   box-shadow: 0 -1px 2px 0 rgba(0,0,0,0.05);
   bottom: 0;
+  margin-top: 35px;
 }
 
 .step2-text {
@@ -440,8 +445,33 @@ button:focus {
     bottom: 100%;
   }
 
+  .incomplete-box {
+    margin-left: 25%;
+    margin-right: 25%;
+    position: relative;
+  }
+
+  .incomplete-icon {
+    left: 5%;
+    top: 5%;
+  }
+
+  .incomplete-box-inner {
+    text-align: left;
+  }
+
+  .incomplete-title-text {
+    text-align: left;
+    padding-top: 15px;
+  }
+
+  .incomplete-habit-wrapper {
+    display: inline-block;
+  }
+
   .step2-rectangle { 
     width: 100%;
+    max-height: 150px;
     padding-top: 45px;
     padding-left: 15%;
     padding-right: 15%;
